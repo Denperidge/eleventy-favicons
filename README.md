@@ -17,7 +17,7 @@ yarn add eleventy-favicons
 import eleventyFavicons from "eleventy-favicons";
 
 export default function (eleventyConfig) {
-    eleventyConfig.addPlugin(eleventyFavicons, "src/favicon.svg");
+    eleventyConfig.addPlugin(eleventyFavicons, { image: "src/favicon.svg"} );
 }
 ```
 Then, use it in your templates. The example below uses HTML/Liquid:
@@ -40,19 +40,46 @@ head
     .
         !{favicons}
     meta(name="generator", content=eleventy.generator)
-
 ```
 
 And that's all you have to do! However, you can customise the behaviour with the methods below.
 
 ### Passing options to favicons
 ```js
-/* {
-        background: "#f4f6a3",
-        theme_color: "#f4f6a3",
-    }*/
+// .eleventy.js
+import eleventyFavicons from "eleventy-favicons";
 
+export default function (eleventyConfig) {
+    eleventyConfig.addPlugin(eleventyFavicons, {
+        image: "src/static/logo.svg",
+        favicons: {
+            background: "#f4f6a3",
+            theme_color: "#f4f6a3",
+        }
+    });
+}
+```
 
 ### Using your own favicons instance
+```js
+// .eleventy.js
+import eleventyFavicons from "eleventy-favicons";
+import favicons from "favicons";
+
+export default function (eleventyConfig) {
+    eleventyConfig.addPlugin(eleventyFavicons, {
+        image: "src/static/logo.svg",
+        faviconsLibrary: favicons
+    });
+}
+```
 
 ### Clone locally
+```bash
+git clone https://github.com/Denperidge/eleventy-favicons.git
+cd eleventy-favicons
+npm install
+```
+
+## License
+This project is licensed under the [MIT License](LICENSE).

@@ -1,8 +1,8 @@
 {
   "name": "eleventy-favicons",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Integrating the favicons library into Eleventy",
-  "main": "11tyfavicons.js",
+  "main": "11tyFavicons.js",
   "keywords": [
     "eleventy-plugin"
   ],

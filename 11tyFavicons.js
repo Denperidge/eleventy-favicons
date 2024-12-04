@@ -9,14 +9,19 @@ async function write(response, property, outputDir) {
     );
 }
 
-module.exports = async function(eleventyConfig, pathToImage, faviconOpts, faviconsLibrary=undefined) {
-    if (faviconsLibrary == undefined) {
+module.exports = async function(eleventyConfig, options) {
+    const { image, favicons: faviconsOpts } = options;
+    let faviconsLibrary;
+    if (Object.keys(options).includes("faviconsLibrary")) {
+        faviconsLibrary = options.faviconsLibrary;
+    } else {
         faviconsLibrary = require("favicons").favicons;
     }
-    if (!fs.existsSync(pathToImage)) {
-        throw new Error("pathToImage is undefined")
+    if (!fs.existsSync(image)) {
+        throw new Error("image is undefined")
     }
-    const response = await faviconsLibrary(pathToImage, faviconOpts);
+    const response = await faviconsLibrary(image, faviconsOpts);
+    
     eleventyConfig.addGlobalData("favicons", response.html.join(""))
     write(response, "images", eleventyConfig.dir.output);
     write(response, "files", eleventyConfig.dir.output);
