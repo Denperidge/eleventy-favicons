@@ -23,6 +23,9 @@ module.exports = async function(eleventyConfig, options) {
     const response = await faviconsLibrary(image, faviconsOpts);
     
     eleventyConfig.addGlobalData("favicons", response.html.join(""))
-    write(response, "images", eleventyConfig.dir.output);
-    write(response, "files", eleventyConfig.dir.output);
+
+    await Promise.all(
+        write(response, "images", eleventyConfig.dir.output),
+        write(response, "files", eleventyConfig.dir.output)
+    )
 }
