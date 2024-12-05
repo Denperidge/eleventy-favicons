@@ -81,5 +81,10 @@ cd eleventy-favicons
 npm install
 ```
 
+## Attribution
+This project does not exists in a vaccuum, so I'd like to give credit to:
+- The similar use case [eleventy-plugin-gen-favicons](https://www.npmjs.com/package/eleventy-plugin-gen-favicons) is an incredible option for those that prefer filters/shortcodes, or those that like the standards and favicon generation it is based on.
+- [@grimlink/eleventy-plugin-sass](https://www.npmjs.com/package/@grimlink/eleventy-plugin-sass) is an incredible plugin that introduced me to bring-your-own-imports in Eleventy plugins, which is a design decision I also added to eleventy-favicons.
+
 ## License
 This project is licensed under the [MIT License](LICENSE).
