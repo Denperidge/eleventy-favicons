@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
+
 let alreadyBuilt = false;
 
 async function write(response, property, outputDir) {
@@ -14,7 +15,7 @@ async function write(response, property, outputDir) {
 }
 
 module.exports = async function(eleventyConfig, options) {
-    const { image, favicons: faviconsOpts } = options;
+    const { image, cwd, favicons: faviconsOpts } = options;
     let faviconsLibrary;
     if (Object.keys(options).includes("faviconsLibrary")) {
         faviconsLibrary = options.faviconsLibrary;
@@ -22,8 +23,10 @@ module.exports = async function(eleventyConfig, options) {
         faviconsLibrary = require("favicons").favicons;
     }
     if (!fs.existsSync(image)) {
-        throw new Error("options.image is undefined");
+        throw new Error(`options.image does not exist (${image})`);
     }
+
+    if (!cwd) path.isAbsolute()
     const response = await faviconsLibrary(image, faviconsOpts);
     
     eleventyConfig.addGlobalData("favicons", response.html.join(""));

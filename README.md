@@ -85,6 +85,7 @@ npm install
 This project does not exists in a vaccuum, so I'd like to give credit to:
 - The similar use case [eleventy-plugin-gen-favicons](https://www.npmjs.com/package/eleventy-plugin-gen-favicons) is an incredible option for those that prefer filters/shortcodes, or those that like the standards and favicon generation it is based on.
 - [@grimlink/eleventy-plugin-sass](https://www.npmjs.com/package/@grimlink/eleventy-plugin-sass) is an incredible plugin that introduced me to bring-your-own-imports in Eleventy plugins, which is a design decision I also added to eleventy-favicons.
+- [pesasa from openclipart](https://web.archive.org/web/20210624071744/http://openclipart.org/detail/104599/cat-linedrawing) for the public domain svg the tests use as a favicon! 
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
