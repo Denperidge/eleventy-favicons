@@ -1,7 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 
-
 let alreadyBuilt = false;
 
 async function write(response, property, outputDir) {
@@ -15,7 +14,7 @@ async function write(response, property, outputDir) {
 }
 
 module.exports = async function(eleventyConfig, options) {
-    const { image, cwd, favicons: faviconsOpts } = options;
+    const { image, favicons: faviconsOpts } = options;
     let faviconsLibrary;
     if (Object.keys(options).includes("faviconsLibrary")) {
         faviconsLibrary = options.faviconsLibrary;
@@ -26,7 +25,6 @@ module.exports = async function(eleventyConfig, options) {
         throw new Error(`options.image does not exist (${image})`);
     }
 
-    if (!cwd) path.isAbsolute()
     const response = await faviconsLibrary(image, faviconsOpts);
     
     eleventyConfig.addGlobalData("favicons", response.html.join(""));
@@ -34,8 +32,8 @@ module.exports = async function(eleventyConfig, options) {
     eleventyConfig.on("eleventy.after", async ({ dir, results, runMode, outputMode }) => {
         if(!alreadyBuilt) {
             await Promise.all([
-                write(response, "images", eleventyConfig.dir.output),
-                write(response, "files", eleventyConfig.dir.output)
+                write(response, "images", eleventyConfig.directories.output),
+                write(response, "files", eleventyConfig.directories.output)
             ]);
             alreadyBuilt = true;
         }

@@ -12,8 +12,7 @@ let results = await buildScenarios({
 console.log("2")
 
 test("Eleventy v3, v2 & v1 work", async t =>{
-    console.log(results)
     Object.entries(results).forEach(([scenarioName, scenarioOutput]) => {
-        console.log(Object.keys(scenarioOutput.files).length)
+        t.is(Object.keys(scenarioOutput.files).length, 70);
     })
 })
