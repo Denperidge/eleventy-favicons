@@ -16,7 +16,7 @@ yarn add eleventy-favicons
 // .eleventy.js
 import eleventyFavicons from "eleventy-favicons";
 
-export default function (eleventyConfig) {
+export default async function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyFavicons, { image: "src/favicon.svg"} );
 }
 ```
@@ -49,7 +49,7 @@ And that's all you have to do! However, you can customise the behaviour with the
 // .eleventy.js
 import eleventyFavicons from "eleventy-favicons";
 
-export default function (eleventyConfig) {
+export default async function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyFavicons, {
         image: "src/static/logo.svg",
         favicons: {
@@ -66,7 +66,7 @@ export default function (eleventyConfig) {
 import eleventyFavicons from "eleventy-favicons";
 import favicons from "favicons";
 
-export default function (eleventyConfig) {
+export default async function (eleventyConfig) {
     eleventyConfig.addPlugin(eleventyFavicons, {
         image: "src/static/logo.svg",
         faviconsLibrary: favicons
