@@ -40,7 +40,6 @@ test("Favicon options are passed", async t => {
 
 test("Favicon library is passed", async t => {
     hasTheCorrectAmountOfFiles(t, "3--favicons-library-passed", 63)
-    console.log(Object.keys(results["3--favicons-library-passed"].files))
     const uniqueFilesForFavicons6 = ["/firefox_app_60x60.png", "/firefox_app_128x128.png", "/firefox_app_512x512.png"];
     for (let i=0; i < uniqueFilesForFavicons6.length; i++) {
         const uniqueFilename = uniqueFilesForFavicons6[i];

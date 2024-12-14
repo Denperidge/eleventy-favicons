@@ -17,7 +17,7 @@
   "devDependencies": {
     "@11ty/eleventy3.0.0": "npm:@11ty/eleventy@3.0.0",
     "ava": "^6.2.0",
-    "eleventy-test": "^1.1.0",
+    "eleventy-test": "^1.2.0",
     "favicons6.2.2": "npm:favicons@6.2.2",
     "sharp": "^0.33.5"
   }
